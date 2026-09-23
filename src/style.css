@@ -1,0 +1,113 @@
+:root {
+  --bg: #fbf6ec;
+  --ink: #2b2118;
+  --muted: #7a6a58;
+  --card: #fffdf8;
+  --line: #eadfcb;
+  --accent: #c2410c;
+  --moon: #f6c453;
+  --warn-bg: #fee2e2;
+  --warn-ink: #991b1b;
+  --bubble: #e9e9eb;
+  font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+* { box-sizing: border-box; }
+body, .bubble { word-break: keep-all; overflow-wrap: anywhere; }
+body { margin: 0; background: var(--bg); }
+
+.warning {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px max(16px, calc((100% - 640px) / 2));
+  background: var(--warn-bg);
+  color: var(--warn-ink);
+  border-bottom: 2px solid #fca5a5;
+}
+.warning-icon { font-size: 28px; line-height: 1; }
+.warning strong { font-size: 1.15rem; display: block; }
+.warning p { margin: 4px 0 0; font-size: 0.9rem; line-height: 1.5; }
+
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 24px 16px 40px;
+  display: grid;
+  gap: 24px;
+}
+
+section {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 28px 20px;
+}
+
+.greeting { text-align: center; }
+.moon {
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff3c4, var(--moon) 60%, #e0a526);
+  box-shadow: 0 0 40px #f6c45388;
+}
+.greeting h1 { margin: 0 0 8px; font-size: 1.7rem; }
+.greeting p { margin: 0; white-space: pre-line; line-height: 1.7; color: var(--muted); }
+
+.generator h2 { margin: 0; font-size: 1.35rem; }
+.sub { margin: 6px 0 16px; color: var(--muted); font-size: 0.92rem; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.chip {
+  border: 1px solid var(--line);
+  background: #fff;
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--ink);
+}
+.chip[aria-pressed='true'] { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+.phone {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px 16px;
+  min-height: 150px;
+}
+.bubble {
+  max-width: 90%;
+  background: var(--bubble);
+  border-radius: 18px 18px 18px 4px;
+  padding: 12px 14px;
+  white-space: pre-wrap;
+  line-height: 1.55;
+  font-size: 0.95rem;
+}
+.bubble .placeholder { color: #999; }
+.bubble.loading { opacity: 0.5; animation: pulse 1s infinite alternate; }
+@keyframes pulse { to { opacity: 0.25; } }
+
+.actions { display: flex; gap: 8px; margin-top: 16px; }
+.actions button {
+  flex: 1;
+  padding: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  cursor: pointer;
+}
+.actions .primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.actions button:disabled { opacity: 0.5; cursor: default; }
+
+.status { min-height: 1.2em; margin: 10px 0 0; font-size: 0.85rem; color: var(--muted); text-align: center; }
+
+footer { text-align: center; color: var(--muted); font-size: 0.8rem; padding: 0 16px 32px; }
